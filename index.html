@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Constrained</title>
+  <meta name="description" content="A form can make a birth legible. It can't contain a person." />
+  <style>
+    :root { color-scheme: light; }
+    body {
+      margin: 0;
+      background: #f4f1ea;
+      color: #1c1915;
+      font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    }
+    main {
+      max-width: 38rem;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem 3rem;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin: 0 0 1.5rem;
+    }
+    p { font-size: 1.125rem; line-height: 1.55; margin: 0 0 1rem; }
+    .lines { margin: 1.75rem 0; }
+    .lines p { margin: 0.35rem 0; }
+    form { margin-top: 2.25rem; }
+    label { display: block; font-size: 1rem; margin-bottom: 0.5rem; }
+    input[type="email"] {
+      width: 100%;
+      box-sizing: border-box;
+      font: inherit;
+      font-size: 1rem;
+      padding: 0.7rem 0.8rem;
+      border: 1px solid #1c1915;
+      background: #fff;
+    }
+    button {
+      margin-top: 0.75rem;
+      font: inherit;
+      font-size: 1rem;
+      padding: 0.65rem 1rem;
+      background: #1c1915;
+      color: #f4f1ea;
+      border: 0;
+      cursor: pointer;
+    }
+    .help, footer { color: #5c564c; font-size: 0.95rem; }
+    .help { margin-top: 0.75rem; }
+    footer { margin-top: 3rem; }
+    #note { display: none; margin-top: 1.5rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>A form can make a birth legible. It can't contain a person.</h1>
+    <p>A birth record does a limited job. It can make a birth legible to institutions. It cannot contain a person.</p>
+    <div class="lines">
+      <p>Fact: registration systems produce evidence.</p>
+      <p>Inference: that evidence has real administrative effects.</p>
+      <p>Speculation we refuse: the record is a hidden person, trust, or financial instrument.</p>
+    </div>
+    <p>Rejecting an unsupported myth is not a defense of every bureaucracy.</p>
+    <form id="capture">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required autocomplete="email" />
+      <button type="submit">Send the distinction</button>
+      <p class="help">One note. The birth-form distinction from Chapter 1. Not a pitch.</p>
+    </form>
+    <p id="note">The note is the distinction above. A record can make a birth legible. It cannot contain a person.</p>
+    <footer>CONSTRAINED · not legal, medical, financial, or pastoral advice.</footer>
+  </main>
+  <script>
+    document.getElementById("capture").addEventListener("submit", function (event) {
+      event.preventDefault();
+      document.getElementById("note").style.display = "block";
+    });
+  </script>
+</body>
+</html>
