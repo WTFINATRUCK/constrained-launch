@@ -4,44 +4,197 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Constrained</title>
-  <meta name="description" content="A birth certificate records a birth. It is not the person." />
+  <meta name="description" content="Constrained. God, consciousness, freedom, and the human condition. Six distinctions live in the picture." />
   <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: #070605; color: #efe6d6; }
     body {
-      margin: 0;
-      background: #fff;
-      color: #111;
-      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+      min-height: 100vh;
+      font-family: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
     }
-    main {
-      max-width: 36rem;
-      margin: 0 auto;
-      padding: 3rem 1.25rem 2.5rem;
+    .stage {
+      position: relative;
+      width: min(430px, 92vw);
+      margin: 1.25rem auto 0;
     }
-    h1 {
-      font-size: 1.75rem;
-      font-weight: 650;
-      line-height: 1.25;
-      margin: 0 0 1.25rem;
+    img { width: 100%; height: auto; display: block; }
+    .hit {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      transform: translate(-50%, -50%);
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
     }
-    p { font-size: 1.125rem; line-height: 1.45; margin: 0 0 1rem; }
-    ul { margin: 0 0 1.25rem; padding-left: 1.2rem; }
-    li { font-size: 1.125rem; line-height: 1.45; margin: 0.4rem 0; }
-    .help, footer { color: #444; font-size: 0.95rem; }
-    footer { margin-top: 2.5rem; }
+    .hit i {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 7px;
+      height: 7px;
+      margin: -3.5px 0 0 -3.5px;
+      border-radius: 50%;
+      background: #d7a441;
+      box-shadow: 0 0 10px rgba(215, 164, 65, 0.85);
+      opacity: 0.7;
+    }
+    .hit:hover i, .hit:focus i, .hit[aria-expanded="true"] i {
+      opacity: 1;
+      transform: scale(1.35);
+    }
+    .hit:focus-visible { outline: 1px solid #d7a441; outline-offset: 2px; }
+    .hint {
+      width: min(430px, 92vw);
+      margin: 0.85rem auto 2.5rem;
+      text-align: center;
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #a89880;
+    }
+    .sheet {
+      position: fixed;
+      inset: auto 0 0 0;
+      max-height: min(70vh, 34rem);
+      overflow: auto;
+      background: #100e0c;
+      color: #efe6d6;
+      border-top: 1px solid #3a3228;
+      padding: 1.25rem 1.25rem 1.75rem;
+      transform: translateY(110%);
+      transition: transform 0.22s ease;
+    }
+    .sheet.open { transform: translateY(0); }
+    .sheet h2 {
+      font-weight: 500;
+      font-size: 1.55rem;
+      letter-spacing: 0.04em;
+      margin: 0 0 0.35rem;
+    }
+    .where {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #d7a441;
+      margin: 0 0 0.9rem;
+    }
+    .sheet p { font-size: 1.08rem; line-height: 1.45; margin: 0 0 0.8rem; }
+    .not { color: #cbbba6; }
+    .close {
+      position: absolute;
+      top: 0.7rem;
+      right: 0.7rem;
+      width: 2rem;
+      height: 2rem;
+      border: 0;
+      background: transparent;
+      color: #efe6d6;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+    .fine {
+      margin: 1.25rem 0 0;
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      color: #8a7d6c;
+    }
+    @media (min-width: 800px) {
+      .sheet {
+        inset: 0 0 0 auto;
+        width: min(26rem, 40vw);
+        max-height: none;
+        border-top: 0;
+        border-left: 1px solid #3a3228;
+        transform: translateX(110%);
+        padding: 4.5rem 1.75rem 2rem;
+      }
+      .sheet.open { transform: translateX(0); }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <h1>A birth certificate records a birth. It is not the person.</h1>
-    <p>The form tells an office that a birth happened. That is the job. It does not hold the person, and it does not create the person.</p>
-    <ul>
-      <li>Fact: a birth record is evidence that a birth was registered.</li>
-      <li>What follows: offices act on that record.</li>
-      <li>Not claimed: the record is a hidden person, a trust, or money.</li>
-    </ul>
-    <p>Calling that myth false is not the same as saying every office is right.</p>
-    <p class="help">From chapter 1. Not a sales page.</p>
-    <footer>CONSTRAINED. Not legal, medical, financial, or pastoral advice.</footer>
-  </main>
+  <div class="stage">
+    <img src="cover.jpg" alt="Constrained. A dark cover: a measured diagram on the left, a lone figure walking toward a light, and the line God, Consciousness, Freedom, and the Human Condition." />
+    <button class="hit" style="left:33%;top:46%" data-id="form" aria-expanded="false" aria-controls="sheet"><i></i><span class="sr" hidden>The form</span></button>
+    <button class="hit" style="left:62%;top:34%" data-id="words" aria-expanded="false" aria-controls="sheet"><i></i></button>
+    <button class="hit" style="left:50%;top:63%" data-id="day" aria-expanded="false" aria-controls="sheet"><i></i></button>
+    <button class="hit" style="left:72%;top:50%" data-id="likeness" aria-expanded="false" aria-controls="sheet"><i></i></button>
+    <button class="hit" style="left:50%;top:55%" data-id="year" aria-expanded="false" aria-controls="sheet"><i></i></button>
+    <button class="hit" style="left:28%;top:62%" data-id="timing" aria-expanded="false" aria-controls="sheet"><i></i></button>
+  </div>
+  <p class="hint">Six marks. They are in the picture.</p>
+  <aside class="sheet" id="sheet" hidden>
+    <button class="close" type="button" aria-label="Close">×</button>
+    <p class="where" id="where"></p>
+    <h2 id="title"></h2>
+    <p id="claim"></p>
+    <p class="not" id="not"></p>
+    <p class="fine">Not legal, medical, financial, or pastoral advice. The book keeps the sources.</p>
+  </aside>
+  <script>
+    const marks = {
+      form: {
+        where: "Chapter 1 · The Form",
+        title: "The form",
+        claim: "A birth certificate records a birth. It can matter to an office. It is not a second person, a trust, or a bank account.",
+        not: "Not claimed: that every office handles records the same way, or that records never get misused."
+      },
+      words: {
+        where: "Chapter 2 · Words With Consequences",
+        title: "The words",
+        claim: "A promise, a warning, or a contract can do real work. That depends on the situation and who has authority to hear it. A private password, or a trick of capitalization, does not.",
+        not: "Not claimed: that this is settled law, or that every contract is fair."
+      },
+      day: {
+        where: "Chapter 4 · The Asset Called Tuesday",
+        title: "The day",
+        claim: "A schedule, care, or debt can claim your Tuesday. The day itself is not a piece of property someone owns.",
+        not: "Not claimed: that an average Tuesday is your Tuesday."
+      },
+      likeness: {
+        where: "Chapter 13 · The Galilean Question",
+        title: "The look-alike",
+        claim: "Two stories can look alike. That is not proof one was copied from the other. A look-alike that fails the sources is not proof the other story is true.",
+        not: "Not claimed: that comparing stories is useless, or that the question of contact is closed."
+      },
+      year: {
+        where: "Chapters 16–17 · Before Nicaea",
+        title: "The year 325",
+        claim: "Christians used exalted language for Jesus before the council of 325. That council drew a public line inside a fight already underway. It did not invent the devotion from nothing.",
+        not: "Not claimed: that early devotion is the later creed, or that the creed is therefore true."
+      },
+      timing: {
+        where: "Chapters 6 and 19",
+        title: "The timing",
+        claim: "A lab can catch a brain signal before a person says they chose a small movement. That is a lab result. It is not the sentence “the brain decided,” and it does not prove or disprove a Creator.",
+        not: "Not claimed: that this settles free will, or that experience is unreal."
+      }
+    };
+    const sheet = document.getElementById("sheet");
+    const hits = [...document.querySelectorAll(".hit")];
+    function openMark(id, btn) {
+      const m = marks[id];
+      document.getElementById("where").textContent = m.where;
+      document.getElementById("title").textContent = m.title;
+      document.getElementById("claim").textContent = m.claim;
+      document.getElementById("not").textContent = m.not;
+      sheet.hidden = false;
+      requestAnimationFrame(() => sheet.classList.add("open"));
+      hits.forEach(h => h.setAttribute("aria-expanded", h === btn ? "true" : "false"));
+    }
+    function closeSheet() {
+      sheet.classList.remove("open");
+      hits.forEach(h => h.setAttribute("aria-expanded", "false"));
+      setTimeout(() => { if (!sheet.classList.contains("open")) sheet.hidden = true; }, 220);
+    }
+    hits.forEach(btn => btn.addEventListener("click", () => openMark(btn.dataset.id, btn)));
+    document.querySelector(".close").addEventListener("click", closeSheet);
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeSheet(); });
+  </script>
 </body>
 </html>
